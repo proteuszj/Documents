@@ -1,0 +1,739 @@
+<html>
+<meta charset="utf8">
+
+<head>
+    <title>Accounting (iOS) 使用手册</title>
+    <style type="text/css">
+        p {
+            text-indent: 2em
+        }
+
+        h1 {
+            text-align: center
+        }
+
+        h1 {
+            counter-reset: sectionLevel1;
+        }
+
+        h2:before {
+            counter-increment: sectionLevel1;
+            content: counter(sectionLevel1, disc) " "counter(sectionLevel1) " ";
+        }
+
+        h2 {
+            counter-reset: sectionLevel2;
+            text-indent: 10px;
+        }
+
+        h3:before {
+            counter-increment: sectionLevel2;
+            content: counter(sectionLevel2, disc) " "counter(sectionLevel1) "."counter(sectionLevel2) " ";
+        }
+
+        h3 {
+            counter-reset: sectionLevel3;
+        }
+
+        h4:before {
+            counter-increment: sectionLevel3;
+            content: counter(sectionLevel3, disc) " "counter(sectionLevel1) "."counter(sectionLevel2) "."counter(sectionLevel3) " ";
+        }
+
+        table {
+            position: relative;
+            left: 40;
+            top: 10;
+            max-width: 1200px;
+        }
+    </style>
+</head>
+
+<body style="background-color:aliceblue;">
+    <p>
+    <h1>Accounting (iOS) 使用手册</h1>
+    </p>
+    <hr>
+
+    <h2>简介</h2>
+    <ul>
+        <p>Accounting是一个快捷的记账工具，可以方便快捷的记录每一笔交易，是家庭财务管理的好帮手。</p>
+        <p>Accounting现已推出macOS和iOS两个版本，macOS版本手册见<a href="index_V2.html">Accounting 2.0 (macOS)</a>。</p>
+        <p>Accounting支持借记、贷记、理财、贷款4类账户，可以自定义类别对每笔交易进行分类，支持分类查询和统计。</p>
+        <p>
+        <ul>
+            <li> 借记账户可以理解为普通现金账户，例如银行储蓄卡账户、现金、支付宝/微信钱包、加油卡、购物卡等；</li>
+            <li> 贷记账户可以用于信用卡，手机后付费账户等，Accounting可以自动提醒出单和还款，以及年刷卡次数和到期换卡等；</li>
+            <li> 理财账户用于管理定期理财类账户，可以自动计算收益并提醒赎回；</li>
+            <li> 贷款账户可以管理房贷车贷等，支持等额本金和等额本息两种还款方式，可以自动计算每期还款额和本金、利息，并自动提醒。</li>
+        </ul>
+        </p>
+        <p>对于周期性交易，如工资、保险、还贷、信用卡还款、缴费等，可以添加计划（也可以通过交易快速生成计划）进行管理，入账后自动延到下一期。</p>
+        <p>Accounting还会对所有可预期的交易进行提醒，例如理财到期、卡片到期、信用卡还款、信用卡年刷卡次数不足、 账户余额不足（不足以支付计划内的交易）等等。</p>
+        <p>Accounting的数据保存在用户设备中，并通过用户的iCloud账户在不同设备及平台间共享，不在任何第三方服务器存储，保证用户的隐私安全。</p>
+        <h3>主窗口</h3>
+        <ul>
+            <p>iPad设备通过边栏按钮可以进入不同的页面，若边栏隐藏，可以使用屏幕左上角的“边栏开关”切换显示。</p>
+            <p>iPhone设备通过底部的按钮进入不同的页面。</p>
+
+            <h4>记账</h4>
+            <ul>
+                <p>“记账”页面显示了账户列表。
+                </p>
+                <p>列表上方分别是”增加账户“和”过滤“工具栏按钮，”过滤“按钮显示下拉菜单，可以根据账户类型、状态、拥有者、发行方等来过滤显示在列表的账户，拥有者和发行方只能单选或选择“-全部-”。
+                </p>
+                <p>列表下方显示了列表中账户数量和余额总和。
+                </p>
+                <p align="center" style="text-indent: 0;">
+                    <img src="picv2/iPad_land/1-1main.png" alt="main" width="65%"> <br/>
+                    记账(iPad)
+                </p>
+                <p align="center" style="text-indent: 0;">
+                    <img src="picv2/iPhone/1-1main.png" alt="main" width="25%"> <br/>
+                    记账(iPhone)
+                </p>
+            </ul>
+
+            <h4>计划</h4>
+            <ul>
+                <p>“计划”页面按月份分组显示了计划列表。
+                </p>
+                <p>列表上方分别是“增加计划”和“过滤”工具栏按钮，“过滤”按钮显示下拉菜单，可以根据账户类型、状态、拥有者、发行方等来过滤显示在列表的账户，拥有者和发行方可以多选或选择“-全部-”选择所有选项、选择“-清空-”清除所有选项、或选择“-NULL-”选择空选项。
+                </p>
+                <p>列表下方显示了列表中计划的数量。
+                </p>
+                <p align="center" style="text-indent: 0;">
+                    <img src="picv2/iPad_land/1-2plan.png" alt="plan" width="65%"><br />
+                    计划(iPad)
+                </p>
+                <p align="center" style="text-indent: 0;">
+                    <img src="picv2/iPhone/1-2plan.png" alt="plan" width="25%"><br />
+                    计划(iPhone)
+                </p>
+           </ul>
+
+            <h4>提醒</h4>
+            <ul>
+                <p>“提醒“页面按月份分组显示了提醒列表。
+                </p>
+                <p>列表上方是“过滤”工具栏按钮，“过滤”按钮显示下拉菜单，可以根据账户类型、状态、拥有者、发行方等来过滤显示在列表的账户，拥有者和发行方可以多选或选择“-全部-”选择所有选项、选择“-清空-”清除所有选项、或选择“-NULL-”选择空选项。
+                </p>
+                <p>列表下方显示了列表中提醒的数量。
+                </p>
+                <p align="center" style="text-indent: 0;">
+                    <img src="picv2/iPad_land/1-3reminder.png" alt="reminder" width="65%"><br />
+                    提醒(iPad)
+                </p>
+                <p align="center" style="text-indent: 0;">
+                    <img src="picv2/iPhone/1-3reminder.png" alt="reminder" width="25%"><br />
+                    提醒(iPhone)
+                </p>
+            </ul>
+        </ul>
+
+        <h3>颜色约定</h3>
+        <ul>
+            <p>为了便于识别，不同账户类型显示颜色如下：</p>
+            <ul>
+                <li style="color:red">贷记账户</li>
+                <li style="color:black">借记账户</li>
+                <li style="color:rgb(0, 100, 255)">理财账户</li>
+                <li style="color:rgb(255, 178, 0)">贷款账户</li>
+            </ul>
+            <p>已关闭账户显示颜色如下：</p>
+            <ul>
+                <li style="color:gray">已关闭账户</li>
+            </ul>
+            <p>交易金额显示颜色如下：</p>
+            <ul>
+                <li style="color:red">支出金额</li>
+                <li style="color:green">收入金额</li>
+            </ul>
+        </ul>
+    </ul>
+
+    <h2>快速操作</h2>
+    <ul>
+        <h3><a name="add_account">增加账户</a></h3>
+        <ul>
+            <h4>增加借记账户</h4>
+            <ol>
+                <li>iPad设备点击左侧边栏的“记账”按钮，iPhone设备点击底部的“记账”按钮，进入记账页面；</li>
+                <li>点击账户列表下方的”+“按钮；</li>
+                <li>在“账户类型”下拉框中选择“借记账户”；</li>
+                <li>填写账户名称和其他账户信息，<font color="red">红色</font>为必填内容；</li>
+                <p align="center" style="text-indent: 0;">
+                    <img src="picv2/iPad_land/2-1addDebitAccount.png" alt="Add a Debit Account" width="65%"><br />
+                    增加借记账户(iPad)
+                </p>
+                <p align="center" style="text-indent: 0;">
+                    <img src="picv2/iPhone/2-1addDebitAccount.png" alt="Add a Debit Account" width="25%"><br />
+                    增加借记账户(iPhone)
+                </p>
+                <li>点击“确定”按钮完成。</li>
+            </ol>
+
+            <h4>增加贷记账户</h4>
+            <ol>
+                <li>iPad设备点击左侧边栏的“记账”按钮，iPhone设备点击底部的“记账”按钮，进入记账页面；</li>
+                <li>点击账户列表下方的”+“按钮；</li>
+                <li>在“账户类型”下拉框中选择“贷记账户”；</li>
+                <li>填写账户名称和其他账户信息，<font color="red">红色</font>为必填内容；</li>
+                <p align="center" style="text-indent: 0;">
+                    <img src="picv2/iPad_land/2-2addCreditAccount.png" alt="Add a Credit Account" width="65%"><br />
+                    增加贷记账户(iPad)
+                </p>
+                <p align="center" style="text-indent: 0;">
+                    <img src="picv2/iPhone/2-2addCreditAccount.png" alt="Add a Credit Account" width="25%"><br />
+                    增加贷记账户(iPhone)
+                </p>
+                <li>点击“确定”按钮完成。</li>
+            </ol>
+
+            <h4>增加理财账户</h4>
+            <ol>
+                <li>iPad设备点击左侧边栏的“记账”按钮，iPhone设备点击底部的“记账”按钮，进入记账页面；</li>
+                <li>点击账户列表下方的”+“按钮；</li>
+                <li>在“账户类型”下拉框中选择“理财账户”；</li>
+                <li>填写账户名称和其他账户信息，<font color="red">红色</font>为必填内容；</li>
+                <p align="center" style="text-indent: 0;">
+                    <img src="picv2/iPad_land/2-3addFinancingAccount.png" alt="Add a Financing Account" width="65%"><br />
+                    增加理财账户(iPad)
+                </p>
+                <p align="center" style="text-indent: 0;">
+                    <img src="picv2/iPhone/2-3addFinancingAccount.png" alt="Add a Financing Account" width="25%"><br />
+                    增加理财账户(iPhone)
+                </p>
+                <li>点击“确定”按钮完成。</li>
+            </ol>
+
+            <h4>增加贷款账户</h4>
+            <ol>
+                <li>iPad设备点击左侧边栏的“记账”按钮，iPhone设备点击底部的“记账”按钮，进入记账页面；</li>
+                <li>点击账户列表下方的”+“按钮；</li>
+                <li>在“账户类型”下拉框中选择“贷款账户”；</li>
+                <li>填写账户名称和其他账户信息，<font color="red">红色</font>为必填内容；</li>
+                <p align="center" style="text-indent: 0;">
+                    <img src="picv2/iPad_land/2-4addLoanAccount.png" alt="Add a Loan Account" width="65%"><br />
+                    增加贷款账户(iPad)
+                </p>
+                <p align="center" style="text-indent: 0;">
+                    <img src="picv2/iPhone/2-4addLoanAccount.png" alt="Add a Loan Account" width="25%"><br />
+                    增加贷款账户(iPhone)
+                </p>
+                <li>点击“确定”按钮完成。</li>
+            </ol>
+        </ul>
+
+        <h3><a name="add_detail">记账</a></h3>
+        <ul>
+            <ol>
+                <li>iPad设备点击左侧边栏的“记账”按钮，iPhone设备点击底部的“记账”按钮，进入记账页面；</li>
+                <li>选择账户列表中的一个账户（可通过工具栏的"过滤"按钮对账户列表进行过滤）；</li>
+                <li>此时显示交易明细列表，列表上方有“过滤“和”记账”工具栏按钮，“过滤”按钮会显示“交易明细过滤”窗口，可以对交易明细列表里的交易明细进行过滤；“记账”按钮会显示“交易明细”窗口；</li>
+                <p align="center" style="text-indent: 0;">
+                    <img src="picv2/iPad_land/2-5addDetail.png" alt="Add a Detail" width="65%"><br />
+                    记账(iPad)
+                </p>
+                <p align="center" style="text-indent: 0;">
+                    <img src="picv2/iPhone/2-5addDetail.png" alt="Add a Detail" width="25%"><br />
+                    记账(iPhone)
+                </p>
+                <li>填写交易明细相关信息，<font color="red">红色</font>为必填内容；</li>
+                可以在“账户”下拉列表中修改交易关联的主账户，“目标账户”只针对转账类交易，此类交易“目标账户”余额会同时“减去”交易金额，因此所有账户的总余额不发生变化。<br>
+                日期的快速输入可以只输入日期（如5，日期设定为本月5日）、只输入月份和日期（如505，日期设定为今年5月5日）或输入完整的年月日（如20210505，日期设定为2021年5月5日）。<br>
+                日期的快速输入可以只输入秒（如10，时间设定为0时0分10秒）、只输入分和秒（如505，时间设定为0时5分5秒）或完整的时分秒（如50607，时间设定为5时6分7秒）。
+                可以点击“类别”右侧的“+”按钮增加新的类别和子类别。<br>
+                <li>点击”增加“按钮，完成记账。</li>
+            </ol>
+        </ul>
+
+        <h3><a name="detail_to_plan">用明细生成计划</a></h3>
+        <ul>
+            <ol>
+                <li>iPad设备点击左侧边栏的“记账”按钮，iPhone设备点击底部的“记账”按钮，进入记账页面；</li>
+                <li>选择账户列表中的一个账户（可通过工具栏的“过滤”按钮对账户列表进行过滤）；</li>
+                <li>在交易明细列表中的一个交易明细上向右滑动，会显示“加入计划”按钮，点击按钮弹出“计划”窗口;</li>
+                <li>在“计划”窗口修改明细信息，填入周期和剩余期数，周期可以以“天”、“月”和“年”为单位，剩余期数会在每次计划入账后递减；</li>
+                <p align="center" style="text-indent: 0;">
+                    <img src="picv2/iPad_land/2-6addPlanFromDetail.png" alt="Add a Plan from Detail" width="65%"><br />
+                    用明细生成计划(iPad)
+                </p>
+                <p align="center" style="text-indent: 0;">
+                    <img src="picv2/iPhone/2-6addPlanFromDetail.png" alt="Add a Plan from Detail" width="25%"><br />
+                    用明细生成计划(iPhone)
+                </p>
+                <li>点击“增加”按钮，完成计划生成。</li>
+            </ol>
+        </ul>
+
+        <h3><a name="check_plan_in">计划入账</a></h3>
+        <ul>
+            <ol>
+                <li>iPad设备点击左侧边栏的“计划”按钮，iPhone设备点击底部的“计划”按钮，进入计划页面；</li>
+                <li>在计划列表中的一个计划上向右滑动，会显示“入账”按钮，点击按钮弹出“交易明细”窗口；</li>
+                <li>在“交易明细”窗口编辑交易明细；</li>
+                <p align="center" style="text-indent: 0;">
+                    <img src="picv2/iPad_land/2-7checkPlanIn.png" alt="plan check in" width="65%"><br />
+                    计划入账(iPad)
+                </p>
+                <p align="center" style="text-indent: 0;">
+                    <img src="picv2/iPhone/2-7checkPlanIn.png" alt="plan check in" width="25%"><br />
+                    计划入账(iPhone)
+                </p>
+                <li>点击“增加”按钮，完成入账。如果计划的剩余期数大于1，则剩余期数减一并自动进入下一期；如果计划的剩余期数为0，则提示是否删除此计划，或者保留，用户可以对计划做出修改后继续执行。</li>
+            </ol>
+        </ul>
+
+        <h3>提醒转计划</h3>
+        <ul>
+            <ol>
+                <li>iPad设备点击左侧边栏的“提醒”按钮，iPhone设备点击底部的“提醒”按钮，进入提醒页面；</li>
+                <li>向下滑动可以刷新提醒列表，在提醒列表中的一个提醒上向右滑动，会显示“加入计划”和“入账“按钮（对于到期换卡和免年费刷卡次数提醒，不支持滑动操作）；</li>
+                <li>点击“加入计划”按钮，弹出“计划”窗口；</li>
+                <li>在“计划”窗口修改明细信息，填入周期和剩余期数，周期可以以“天”、“月”和“年”为单位，剩余期数会在每次计划入账后递减；</li>
+                <p align="center" style="text-indent: 0;">
+                    <img src="picv2/iPad_land/2-8reminderToPlan.png" alt="reminder to plan" width="65%"><br />
+                    提醒转计划(iPad)
+                </p>
+                <p align="center" style="text-indent: 0;">
+                    <img src="picv2/iPhone/2-8reminderToPlan.png" alt="reminder to plan" width="25%"><br />
+                    提醒转计划(iPhone)
+                </p>
+                <li>点击“增加”按钮，完成计划生成。</li>
+            </ol>
+        </ul>
+
+    </ul>
+
+    <h2>数据结构</h2>
+    <ul>
+        <h3>账户</h3>
+        <ul>
+            <p>账户分为“借记账户”、“贷记账户啊”、“理财账户”和“贷款账户”4类。</p>
+            <h4>借记账户</h4>
+            <ul>
+                <p>“借记账户”包含以下字段：</p>
+                <table border="1" cellpadding="5">
+                    <tr>
+                        <th>字段</th>
+                        <th>类型</th>
+                        <th>是否必需</th>
+                        <th>说明</th>
+                    </tr>
+                    <tr>
+                        <td style="color: red;">账户名称</td>
+                        <td>字符串</td>
+                        <td>必需</td>
+                        <td>账户唯一的名字，不可重复，建议用卡号后4位作为区分，例如“工行信用卡 1234”</td>
+                    </tr>
+                    <tr>
+                        <td style="color: red;">创建日期</td>
+                        <td>日期</td>
+                        <td>必需</td>
+                        <td>账户创建的日期，默认为当前日期</td>
+                    </tr>
+                    <tr>
+                        <td>描述</td>
+                        <td>字符串</td>
+                        <td>可选</td>
+                        <td>账户的描述信息</td>
+                    </tr>
+                    <tr>
+                        <td>拥有者</td>
+                        <td>字符串</td>
+                        <td>可选</td>
+                        <td>账户所有人，例如家庭成员</td>
+                    </tr>
+                    <tr>
+                        <td>发行方</td>
+                        <td>字符串</td>
+                        <td>可选</td>
+                        <td>账户发行主体，比如对于银行卡可以是工商银行，对于电话卡可以是中国移动，对于加油卡可以是中石化等等</td>
+                    </tr>
+                    <tr>
+                        <td>余额</td>
+                        <td>货币</td>
+                        <td>自动</td>
+                        <td>自动计算生成，不能编辑</td>
+                    </tr>
+                    <tr>
+                        <td>账号</td>
+                        <td>字符串</td>
+                        <td>可选</td>
+                        <td>账户的账号，比如对于银行卡可以是卡号，对于电话卡可以是电话号码，对于加油卡可以是加油卡卡号等等</td>
+                    </tr>
+                </table>
+            </ul>
+            <h4>贷记账户</h4>
+            <ul>
+                <p>除了与“借记账户”相同的字段外，还包含以下字段：</p>
+                <table border="1" cellpadding="5">
+                    <tr>
+                        <th>字段</th>
+                        <th>类型</th>
+                        <th>是否必需</th>
+                        <th>说明</th>
+                    </tr>
+                    <tr>
+                        <td style="color: red;">限额</td>
+                        <td>货币</td>
+                        <td>必需</td>
+                        <td>可透支限额，由发行方提供，比如信用卡的透支限额，花呗限额等等</td>
+                    </tr>
+                    <tr>
+                        <td style="color: red;">账单日</td>
+                        <td>1～31</td>
+                        <td>必需</td>
+                        <td>出账单日，有发行方提供</td>
+                    </tr>
+                    <tr>
+                        <td style="color: red;">结算时间</td>
+                        <td>0～23</td>
+                        <td>必需</td>
+                        <td>账单结算时间，不同银行对于账单日当日交易的处理方式不同，默认为0</td>
+                    </tr>
+                    <tr>
+                        <td style="color: red;">免息期</td>
+                        <td>整数</td>
+                        <td>与月最后还款日必选其一</td>
+                        <td>不同银行对于最后还款日的计算方式不同，有的提供固定的免息期，账单日+免息期为最后还款日</td>
+                    </tr>
+                    <tr>
+                        <td style="color: red;">月最后还款日</td>
+                        <td>1～31</td>
+                        <td>与免息期必选其一</td>
+                        <td>不同银行对于最后还款日的计算方式不同，有的以固定日作为最后还款日</td>
+                    </tr>
+                    <tr>
+                        <td>CV2</td>
+                        <td>3位整数</td>
+                        <td>可选</td>
+                        <td>信用卡背后的3位安全码，<b style="color: red;">本字段涉及信用卡安全，属于敏感信息，如担心泄漏，可以不填</b>，不影响功能</td>
+                    </tr>
+                    <tr>
+                        <td>有效期</td>
+                        <td>4位整数</td>
+                        <td>可选</td>
+                        <td>信用卡有效日期，通常为4位数字，前2位为月份，后2位为年份的后2位，比如0123表示2023年1月，<br>
+                            <b style="color: red;">本字段涉及信用卡安全，属于敏感信息，如担心泄漏，可以不填</b>，但会影响换卡提醒功能
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>免年费刷卡次数</td>
+                        <td>整数</td>
+                        <td>可选</td>
+                        <td>部分信用卡提供刷卡免年费功能，本字段会影响年刷卡次数提醒功能</td>
+                    </tr>
+
+                    <tr>
+                        <td>本期账单日</td>
+                        <td>日期</td>
+                        <td>自动</td>
+                        <td>自动计算生成，不能编辑。如果已过账单日，则为当月账单日；如果未到账单日，则为上期账单日</td>
+                    </tr>
+                    <tr>
+                        <td>最后还款日</td>
+                        <td>日期</td>
+                        <td>自动</td>
+                        <td>自动计算生成，不能编辑。如果已过账单日，则为本期账单最后还款日；如果未到账单日，<br>
+                            则为上期账单最后还款日</td>
+                    </tr>
+                    <tr>
+                        <td>已出账单金额</td>
+                        <td>货币</td>
+                        <td>自动</td>
+                        <td>自动计算生成，不能编辑。如果已过账单日，则为本期账单金额；如果未到账单日，则为上期账单金额</td>
+                    </tr>
+                    <tr>
+                        <td>未出账单金额</td>
+                        <td>货币</td>
+                        <td>自动</td>
+                        <td>自动计算生成，不能编辑。账单日之后发生的交易总金额</td>
+                    </tr>
+                    <tr>
+                        <td>本期待还</td>
+                        <td>货币</td>
+                        <td>自动</td>
+                        <td>自动计算生成，不能编辑。仍需偿还的账单金额，即已出账单金额扣除存入的金额（视为还款）</td>
+                    </tr>
+                    <tr>
+                        <td>可用额度</td>
+                        <td>货币</td>
+                        <td>自动</td>
+                        <td>自动计算生成，不能编辑。限额扣除已消费金额</td>
+                    </tr>
+                    <tr>
+                        <td>刷卡年度开始</td>
+                        <td>日期</td>
+                        <td>自动</td>
+                        <td>自动计算生成，不能编辑。根据有效期月份（前2位）计算，如果当前月份早于有效期月份，<br>
+                            则为上一年有效期月份1日；如果当前月份等于或晚于有效期月份，则为当年有效期鱼粉1日</td>
+                    </tr>
+                    <tr>
+                        <td>上年刷卡次数</td>
+                        <td>整数</td>
+                        <td>自动</td>
+                        <td>自动计算生成，不能编辑。“刷卡年度开始”前一年的交易次数（不含还款）</td>
+                    </tr>
+                    <tr>
+                        <td>本年刷卡次数</td>
+                        <td>整数</td>
+                        <td>自动</td>
+                        <td>自动计算生成，不能编辑。“刷卡年度开始”之后的交易次数（不含还款）</td>
+                    </tr>
+                </table>
+            </ul>
+            <h4>理财账户</h4>
+            <ul>
+                <p>除了与“借记账户”相同的字段外，还包含以下字段：</p>
+                <table border="1" cellpadding="5">
+                    <tr>
+                        <th>字段</th>
+                        <th>类型</th>
+                        <th>是否必需</th>
+                        <th>说明</th>
+                    </tr>
+                    <tr>
+                        <td style="color: red;">开始日期</td>
+                        <td>日期</td>
+                        <td>必需</td>
+                        <td>理财开始生息的日期，不能晚于“创建日期”</td>
+                    </tr>
+                    <tr>
+                        <td>结束日期</td>
+                        <td>日期</td>
+                        <td>可选</td>
+                        <td>理财停止计息日期，适用于定期类理财</td>
+                    </tr>
+                    <tr>
+                        <td style="color: red;">预期收益率%</td>
+                        <td>百分比</td>
+                        <td>必需</td>
+                        <td>理财产品公布的收益率</td>
+                    </tr>
+                    <tr>
+                        <td>周期（天）</td>
+                        <td>整数</td>
+                        <td>自动</td>
+                        <td>自动计算生成，不能编辑。结束日期距离开始日期的天数</td>
+                    </tr>
+                    <tr>
+                        <td>买入金额</td>
+                        <td>货币</td>
+                        <td>自动</td>
+                        <td>自动计算生成，不能编辑。自最后一次分红之后累计买入的总金额</td>
+                    </tr>
+                    <tr>
+                        <td>预期收益</td>
+                        <td>货币</td>
+                        <td>自动</td>
+                        <td>自动计算生成，不能编辑。根据“买入金额”和“预期收益率%”，以及“周期（天）”计算出的理财结束后预计可获得的总收益</td>
+                    </tr>
+                    <tr>
+                        <td>当前理论收益</td>
+                        <td>货币</td>
+                        <td>自动</td>
+                        <td>自动计算生成，不能编辑。根据“买入金额”和“预期收益率%”，以当日距离“开始日期”的天数为周期计算出的可获得收益金额</td>
+                    </tr>
+                    <tr>
+                        <td>最终收益</td>
+                        <td>货币</td>
+                        <td>自动</td>
+                        <td>自动计算生成，不能编辑。理财产品到期后的实际分红</td>
+                    </tr>
+                    <tr>
+                        <td>最终收益率%</td>
+                        <td>百分比</td>
+                        <td>自动</td>
+                        <td>自动计算生成，不能编辑。根据“最终收益”和“买入金额”，以及“周期（天）计算的最终收益率</td>
+                    </tr>
+                </table>
+            </ul>
+            <h4>贷款账户</h4>
+            <ul>
+                <p>除了与“借记账户”相同的字段外，还包含以下字段：</p>
+                <table border="1" cellpadding="5">
+                    <tr>
+                        <th>字段</th>
+                        <th>类型</th>
+                        <th>是否必需</th>
+                        <th>说明</th>
+                    </tr>
+                    <tr>
+                        <td style="color: red;">还款方式</td>
+                        <td>等额本金<br>等额本息</td>
+                        <td>必需</td>
+                        <td>还款方式，“等额本金”每期还固定的本金和当期利息，“等额本息”每期还固定金额，其中除去当期利息的部分归还本金</td>
+                    </tr>
+                    <tr>
+                        <td style="color: red;">金额</td>
+                        <td>货币</td>
+                        <td>必需</td>
+                        <td>“等额本金”的每期本金或“等额本息”的每期总金额</td>
+                    </tr>
+                    <tr>
+                        <td style="color: red;">开始日期</td>
+                        <td>日期</td>
+                        <td>必需</td>
+                        <td>贷款发放日期</td>
+                    </tr>
+                    <tr>
+                        <td style="color: red;">利率</td>
+                        <td>百分比</td>
+                        <td>必需</td>
+                        <td><b style="color: red;">对于浮动利率的贷款，请及时更新利率</b></td>
+                    </tr>
+                    <tr>
+                        <td>下期本金</td>
+                        <td>货币</td>
+                        <td>自动</td>
+                        <td>自动计算生成，不能编辑。下期还款的本金部分</td>
+                    </tr>
+                    <tr>
+                        <td>下期利息</td>
+                        <td>货币</td>
+                        <td>自动</td>
+                        <td>自动计算生成，不能编辑。下期还款的利息部分</td>
+                    </tr>
+                    <tr>
+                        <td>下期合计</td>
+                        <td>货币</td>
+                        <td>自动</td>
+                        <td>自动计算生成，不能编辑。下期还款的总金额</td>
+                    </tr>
+                    <tr>
+                        <td>已还期数</td>
+                        <td>整数</td>
+                        <td>自动</td>
+                        <td>自动计算生成，不能编辑</td>
+                    </tr>
+                    <tr>
+                        <td>剩余期数</td>
+                        <td>整数</td>
+                        <td>自动</td>
+                        <td>自动计算生成，不能编辑。总期数减去已还期数</td>
+                    </tr>
+                    <tr>
+                        <td>总期数</td>
+                        <td>整数</td>
+                        <td>自动</td>
+                        <td>自动计算生成，不能编辑。根据贷款总金额和还款方式以及“利率”计算得到总还款期数</td>
+                    </tr>
+                    <tr>
+                        <td>已还本金</td>
+                        <td>货币</td>
+                        <td>自动</td>
+                        <td>自动计算生成，不能编辑。所有已还款的本金部分</td>
+                    </tr>
+                    <tr>
+                        <td>已还利息</td>
+                        <td>货币</td>
+                        <td>自动</td>
+                        <td>自动计算生成，不能编辑。所有已还款的利息部分</td>
+                    </tr>
+                    <tr>
+                        <td>已还合计</td>
+                        <td>货币</td>
+                        <td>自动</td>
+                        <td>自动计算生成，不能编辑。所欧已还款的合计</td>
+                    </tr>
+                </table>
+            </ul>
+        </ul>
+
+        <h3>账户颜色</h3>
+        <ul>
+            <p>为了便于识别，不同账户类型显示颜色如下：</p>
+            <ul>
+                <li style="color:red">贷记账户</li>
+                <li style="color:black">借记账户</li>
+                <li style="color:rgb(0, 100, 255)">理财账户</li>
+                <li style="color:rgb(255, 178, 0)">贷款账户</li>
+            </ul>
+        </ul>
+
+        <h3>明细</h3>
+        <ul>
+            <p>细记录每笔交易的全部数据，包含以下字段：</p>
+            <table border="1" cellpadding="5">
+                <tr>
+                    <th>字段</th>
+                    <th>类型</th>
+                    <th>是否必需</th>
+                    <th>说明</th>
+                </tr>
+                <tr>
+                    <td style="color: red;">账户</td>
+                    <td>字符串</td>
+                    <td>必需</td>
+                    <td>账户列表中的账户引用，即发生交易的账户，交易金额计入“账户”的累计金额中</td>
+                </tr>
+                <tr>
+                    <td style="color: red;">金额</td>
+                    <td>货币</td>
+                    <td>必需</td>
+                    <td>发生交易的金额数，精确到分</td>
+                </tr>
+                <tr>
+                    <td>目标账户</td>
+                    <td>字符串</td>
+                    <td>可选</td>
+                    <td>账户列表中的账户引用，交易涉及的目标账户，仅在转账类交易才会使用，交易金额会以相反数形式计入“目标账户”的累计金额中</td>
+                </tr>
+                <tr>
+                    <td>类别</td>
+                    <td>字符串</td>
+                    <td>可选</td>
+                    <td>所有交易按“类别”和“子类别”进行两级分类，默认添加：<br>
+                        “其他”-“初始余额”<br>
+                        “转账”-“”<br>
+                        “转账”-“关联自动还款”<br>
+                        “转账”-“自助还款”<br>
+                        “转账”-“存入”<br>
+                        “转账”-“取现”<br>
+                        “理财”-“购买”<br>
+                        “理财”-“分红”<br>
+                        “理财”-“赎回”<br>
+                        “”-“”
+                    </td>
+                </tr>
+                <tr>
+                    <td style="color: red;">日期</td>
+                    <td>日期</td>
+                    <td>必需</td>
+                    <td>交易发生的日期</td>
+                </tr>
+                <tr>
+                    <td style="color: red;">时间</td>
+                    <td>时间</td>
+                    <td>必需</td>
+                    <td>交易发生的时间，24小时制，精确到秒，若无法确定时间的可以记为00:00:00，<br>
+                        整体上交易明细会按交易时间排序，但时间为00:00:00的交易会按记账的时间确定排序位置，<br>
+                        不会自动调整顺序，即同一日内时间为00:00:00的明细可能排列在7:00:00和8:00:00之间
+                    </td>
+                </tr>
+                <tr>
+                    <td>描述</td>
+                    <td>字符串</td>
+                    <td>可选</td>
+                    <td>交易补充描述信息</td>
+                </tr>
+            </table>
+        </ul>
+
+        <h3>分类</h3>
+        <ul>
+            <p>有交易可以按“类别”-“子类别”进行两级分类。用户可以在：</p>
+            <ul>
+                <li>“交易明细”页面</li>
+                <li>“计划”页面</li>
+            </ul>
+            <p>点击“类别”最右侧的“+”按钮，输入并添加新的“类别”和“子类别”。</p>
+            <p>未被使用的“类别”、“子类别”不会被保存，因此添加的无效分类无需特意删除。</p>
+        </ul>
+    </ul>
+
+</body>
+
+</html>
